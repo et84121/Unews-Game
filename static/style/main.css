@@ -1,0 +1,77 @@
+.helloSection {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-image: linear-gradient(
+      rgba(153, 153, 153, 0.3),
+      rgba(0, 0, 0, 0.1)
+    ),
+    url("../img/IMG_0219.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.helloH1 {
+  background-color: rgba(255, 255, 255, 0.7);
+  margin: auto;
+  padding: 1rem;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.gameText {
+  background-color: rgb(255, 174, 0);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.section2 {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-image: linear-gradient(
+      rgba(153, 153, 153, 0.3),
+      rgba(0, 0, 0, 0.1)
+    ),
+    url("../img/IMG_6148.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section3 {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-image: linear-gradient(
+      rgba(153, 153, 153, 0.3),
+      rgba(0, 0, 0, 0.1)
+    ),
+    url("../img/IMG_0001.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section4 {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-image: linear-gradient(
+      rgba(153, 153, 153, 0.3),
+      rgba(0, 0, 0, 0.1)
+    ),
+    url("../img/IMG_0297.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section5 {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-image: linear-gradient(
+      rgba(153, 153, 153, 0.3),
+      rgba(0, 0, 0, 0.1)
+    ),
+    url("../img/IMG_0264.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+p {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: large;
+}

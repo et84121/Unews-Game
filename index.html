@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="stylesheet" type="text/css" href="static/style/main.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate(
+        "unityContainer",
+        "Build/Game.json",
+        { onProgress: UnityProgress }
+      );
+    </script>
+    <title>Unews 政大大學報</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="helloSection row align-items-center justify-content-center">
+        <div class="col">
+          <h1 class="helloH1" data-aos="fade-up" style="width: 12em;">
+            美麗回收場、政大外帶人
+          </h1>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center">
+        <div class="gameText col col-lg-8">
+          <p class="text-left">
+            近年環保意識抬頭，減少使用一次性餐具已經成為世界趨勢。
+            <br />然而今年因新型冠狀病毒肺炎（COVID-19）疫情嚴峻，台灣政府放寬一次性餐具使用措施，以降低接觸傳染的風險。
+            <br />如今，使用一次後立即拋棄的免洗餐具大幅度增加，儼然已成為環境問題。
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="row align-items-center justify-content-center"
+        style="min-height: 100vh;"
+      >
+        <div class="col-lg-8">
+          <div id="unityContainer"></div>
+        </div>
+      </div>
+
+      <div class="section2 row align-items-center justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="helloH1" style="width: 19em;" data-aos="flip-left">
+            疫情之下人心惶惶，人民生活型態大轉變
+          </h1>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center">
+        <div class="m-5 col col-lg-8">
+          <p class="text-left" data-aos="fade-up">
+            新冠肺炎疫情使得人人自危，許多餐飲業者擔心消費者對使用重複清洗的餐具存有衛生疑慮，而不願前往消費，因此將店內改為使用一次性餐具或以折扣鼓勵消費者外帶。販售鍋貼、水餃的連鎖餐飲業者今年1月在店內張貼公告，宣布為維護消費者安全及加強防疫，全台分店內用皆改為使用一次性餐具（註1），該連鎖餐飲業店員ㄚ榮（化名）表示：「如果是用一般的環保餐具，成本比較便宜，但是叫貨（一次性免洗餐具）的話，成本就會拉高兩到三倍。」他坦言，雖然成本增加，但是疫情這種事情不能輕易看待，若這麼做能降低重複感染的可能性，當然會願意配合公司的政策。
+          </p>
+          <p class="text-left" data-aos="fade-up">
+            註1：近日因疫情趨緩，該業者宣布內用已全面恢復提供環保餐具。
+          </p>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center">
+        <div class="col col-lg-6 mb-5">
+          <div id="IMGcarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li
+                data-target="#IMGcarousel"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li data-target="#IMGcarousel" data-slide-to="1"></li>
+              <li data-target="#IMGcarousel" data-slide-to="2"></li>
+              <li data-target="#IMGcarousel" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="https://i.imgur.com/HD6uOFb.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://i.imgur.com/6f9oKnv.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://i.imgur.com/D8tTyUy.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://i.imgur.com/VDy7P8r.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev"
+              href="#IMGcarousel"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#IMGcarousel"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center mb-2">
+        <div class="col-lg-4">
+          <img class="img-fluid" src="static/img/IMG_9886.jpg" />
+          <p class="text-center mt-3">圖說</p>
+        </div>
+        <div class="col-lg-4">
+          <p class="pt-3" data-aos="fade-up">
+            在政府宣導保持「社交距離」的政策下，民眾的生活習慣因而改變。多數人減少外出用餐，選擇外帶餐食或使用外送服務，民眾謝宛軒表示：（）。環境保護署也因應疫情，於今年4月中開放列管業者申請暫時提供一次性餐具，導致在回收分類時應歸類為「廢紙容器類」的一次性餐具使用量大增。根據環保署「公告應回收廢物品及容器回收量」統計，紙容器在去年3月共計回收約4197公噸，在疫情最高峰的今年3月則約12841公噸，為去年同期的三倍
+            。曾任環保署副署長、現為環境律師的詹順貴表示，使用一次性餐具希望只會是個短時間內不得已的作法，並不希望疫情過後，這個習慣仍長存。
+          </p>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center mb-2">
+        <div class="col-lg-4">
+          <p class="pt-3" data-aos="fade-up">
+            此外，疫情升溫也助長宅經濟（註2），民眾消費模式改變，多選擇由實體通路改為數位通路來添購日常生活所需物品。根據經濟部統計，電子購物及郵購業今年第一季的網路銷售金額502.6億元，去年第一季則為429.5億元，相比銷售額增16.5％。網路購物雖能降低人與人的接觸機會，卻也增加包裝耗材的資源使用。某大盤商業者便指出，近期為保護商品、減少碰撞的氣泡布銷售確實呈現上升趨勢。該現象也使得環保署去年提出之「網購包裝減量指引」恐怕難以達成今年欲減少1700噸網購包裝的目標，環保署廢棄物管理處000也坦言：()。 
+            註2：指人們減少出門消費所帶來的商機與現象。
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <img class="img-fluid" src="static/img/IMG_6103.jpg" />
+          <p class="text-center mt-3">圖說</p>
+        </div>
+      </div>
+
+      <div class="section3 row align-items-center justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="helloH1" style="width: 19em;" data-aos="flip-left">
+            疫情放寬限塑政策　18年政策成效恐崩壞
+          </h1>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center mb-2 mt-4">
+        <div class="col-lg-8">
+          <p class="text-left" data-aos="fade-up">
+            無論是使用一次性餐具或是進行網路購物包裝耗材，每樣商品皆少不了塑膠使用製成的外包裝，本次疫情也進而導致塑膠危害環境的問題再度浮現。台灣的限塑政策最早可追回溯至2002年，時任行政院環保署署長的郝龍斌宣布，自該年7月起分階段限用塑膠袋及免洗餐具，並禁用厚度低於0.06公釐的塑膠袋，以增加重複使用的耐用度。然而不料，塑膠袋增厚並無提高重複使用率，塑膠用量不減反增。於是在2006年，環保署頒布「限塑政策精進方案」，取消限制有店面的餐飲業使用購物塑膠袋，接著更在2018年，宣布擴大禁止提供免費塑膠袋的管制範圍，規範麵包店、洗衣店及飲料店等約8萬家業者，不得再提供免費塑膠袋。
+          </p>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center">
+        <div class="col col-lg-6 mb-2">
+          <div id="IMGcarousel02" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li
+                data-target="#IMGcarousel02"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li data-target="#IMGcarousel02" data-slide-to="1"></li>
+              <li data-target="#IMGcarousel02" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="static/img/IMG_24111.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="static/img/107923_01.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="static/img/IMG_20200525_1754001.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev"
+              href="#IMGcarousel02"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#IMGcarousel02"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center mt-2">
+        <div class="col-lg-8">
+          <p class="text-left" data-aos="fade-up">
+            從2002年至今，台灣耗費18年的努力，才減緩終於成功管制塑膠袋的使用量成長幅度。不過，然而，根據東方線上消費者研究集團的「宅居經濟大衝擊」調查報導指出，面對此次豪無預警的疫情與政府的宣導下，有將近四成的民眾延長增加在家的時間，使之宅居活動頻率類型全面上升，其中，宅經濟的商業走向大大改變影響了過去的限塑生活。
+          </p>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center mt-2">
+        <div class="col-lg-8">
+          <img class="img-fluid" src="static/img/IMG_9850.jpg" />
+          <p class="text-center mt-2">
+            環保團體看守台灣協會秘書長謝和霖鼓勵民眾自備環保餐具，不僅能避免接觸病毒，也能減少產生一次性餐具的垃圾。　圖／張佳琪攝
+          </p>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center mt-4 mb-2">
+        <div class="col-lg-8">
+          <p class="text-left" data-aos="fade-up">
+            對於台灣推行減塑多年終於有些成效，卻在疫情期間停擺的現象，環保團體看守台灣協會秘書長謝和霖認為原因可能是民眾接收的防疫資訊不足，而產生恐慌。他以外帶與內用為例，如果餐飲業者本身為新型冠狀病毒肺炎無症狀感染者，消費者若使用店家提供的一次性餐具，也有接觸病毒的風險。因此他建議民眾應自備環保餐具，才是最安心的作法。
+            本次政府因應疫情一擺過去18年的限塑政策，重新開放餐飲業者提供內用民眾一次性餐具，謝和霖感到可惜，他表示：「若未來新型冠狀病毒肺炎變成季節性流行病毒，那我們的減塑政策不就要完蛋了？」謝和霖認為，疫情期間反而是推動限塑的良機。他建議環保署應由過去的自備環保杯擴大至鼓勵民眾多自備環保餐具，業者則可提升自備餐具的折扣，如此民眾不但用得安心，也可達到環保的目的。
+          </p>
+        </div>
+      </div>
+
+      <div class="section4 row align-items-center justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="helloH1" style="width: 19em;" data-aos="flip-left">
+            紙容器銷量急速升高　回收業者恐不及及
+          </h1>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center mt-4 mb-2">
+        <div class="col-lg-8">
+          <p class="text-left" data-aos="fade-up">
+            雖然過去政府持續推行限用一次性餐具政策，然因台灣外食人口多，紙容器的使用量一直無法降低。而紙容器為防水、防油，在紙板內外皆有一層薄薄的聚乙烯（Polyethylene,
+            PE）或聚丙烯（Propene,
+            PP）塑膠膜成分，不可直接納入紙類回收循環，因此也提升回收的困難和複雜程度。
+          </p>
+          <p class="text-left" data-aos="fade-up">
+            為妥善利用紙容器的優質紙纖維，且避免紙容器的塑膠膜在燃燒後產生污染，紙容器需與一般紙類分開回收，並由環保署認證之處理廠進行再生處理。全台目前僅有三家紙容器處理廠：連泰紙業股份有限公司、正隆股份有限公司竹北廠與中華紙漿股份有限公司台東廠。正隆永續發展部經理陳靜宜說明，回收業者每日會將廢紙容器打包成一塊塊的紙磚，送至正隆竹北廠進行處理。紙容器進入散漿機進行「紙塑分離」後，分離出來的紙纖維可以再製為卡紙，取代回收紙成為包裝盒的內層，而淋膜（註3）的部分可做成燃料棒，讓紙容器可以全部循環再利用，實現循環經濟。
+          </p>
+          <p class="text-left" data-aos="fade-up">
+            註3：淋膜為在紙上附著一層極薄的塑膠材料，讓紙餐具能長時間盛裝飲料或湯水食物。
+          </p>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center mt-2">
+        <div class="col-lg-8">
+          <img class="img-fluid" src="static/img/IMG_0000.jpeg" />
+          <p class="text-center mt-2">
+            廢紙容器認證稽核人員前往廢紙容器處理廠，稽查廢紙容器認證作業。　圖／正隆股份有限公司提供
+          </p>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center mt-4 mb-2">
+        <div class="col-lg-8">
+          <p class="text-left" data-aos="fade-up">
+            台灣沒有注重紙類垃圾分流，「紙容器會混雜到其他的紙類，進到一般的造紙廠去，無法被妥善處理，不僅浪費資源也增加廢棄物處理。」許多民眾並不清楚紙容器的範疇包含紙盒包（一般用於裝牛奶或豆漿）、鋁箔包和各類紙餐盒。且台灣公共場所常見的分類為鐵鋁類、紙類、塑膠類、一般垃圾等，沒有「廢紙容器類」，使紙容器時常遭錯置。
+          </p>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center mt-2">
+        <div class="col-lg-8">
+          <img class="img-fluid" src="static/img/01-01.png" />
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center mt-4 mb-2">
+        <div class="col-lg-8">
+          <p class="text-left" data-aos="fade-up">
+            儘管政府積極推廣紙容器的正確分類，廣銓環保科技負責人蔡明洲指出，家庭垃圾還是時常未分類完全，使他們需要額外負擔人事成本挑選紙容器。有些業者因為將紙容器運送至處理場的「人事、運輸成本高於收益」，會任意掩埋或焚燒之。其中的塑膠層無法自然分解，燃燒更會產生有毒物質，危害環境。因此環保署資源回收基金管理會自2006年7月1日起，向生產商收取回收基金，再設定費率補貼回收業者及處理廠，輔導回收業者落實分流紙容器與紙類垃圾。再加上2019年底處理場數量增加，全台認證處理的紙容器數量也逐月提高。
+          </p>
+          <p class="text-left" data-aos="fade-up">
+            近幾年在處理場與政府的協力下，紙容器回收率自2017年的44％上升至2018年的65％。但比較經濟部與環保署資料，經濟部2019年其它紙容器的內銷量為65.8億個，環保署卻指出台灣近年來紙容器的年用量將近80億個，其中近15億的落差是環保署無法掌握的數量，000表示，（環保署其實無法掌握全台精確紙容器使用數據，地下廠商黑數是其無法掌握的問題，）
+          </p>
+        </div>
+      </div>
+
+      <div class="section5 row align-items-center justify-content-center mb-3">
+        <div class="col-lg-8">
+          <h1 class="helloH1" style="width: 20em;" data-aos="flip-left">
+            垃圾汙染應從根本解決　塑膠轉型成新希望
+          </h1>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center mt-5">
+        <div class="col-lg-4">
+          <img class="img-fluid" src="static/img/ffff.png" />
+          <p class="text-center mt-3">圖說</p>
+        </div>
+        <div class="col-lg-4">
+          <p class="pt-3" data-aos="fade-up">
+            若要達成垃圾減量仍需要從源頭減少，才能達到真正的環境保護。對此，立法委員王婉諭則提出另一種解方，他呼籲台灣簽署《新塑膠經濟全球承諾》，接軌國際，推動塑膠轉型。該承諾要求政府透過綠色設計，改善設計不良或不必要的塑膠包裝，且塑膠包裝材質應為100％可重複利用。
+          </p>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center mb-2">
+        <div class="col-lg-4">
+          <p class="pt-3" data-aos="fade-up">
+            王婉諭要求環保署完成聚乳酸（Poly Lactic Acid,
+            PLA），又名玉米澱粉樹酯的可堆化肥的檢測。PLA須在氧氣充分、相對濕度90％以上，溫度58至70度的環境才能分解，環保署目前已經確認PLA可在台灣環境自然分解，並承諾會在今年底完成分解後無毒檢測。此外王婉諭認為，台灣其實有許多科技業或新創產業廠商欲設計可循環經濟的環保商品，環保署卻沒有相關機制可以補助。且廠商所需資源和回收場可提供素材未有完整透明資訊整合平台，他舉例，有業者想做環保漁網，但前端沒有把需要的原料分類出來。
+          </p>
+          <p class="pt-3" data-aos="fade-up">
+            對於PLA循環經濟的使用，生產紙杯的晉兆生化科技公司董事長張靜文說明，目前仍不確定PLA在分解過後藉由食物鏈回到人體，是否會對人造成影響。因此該公司發展核心發泡技術，除了其隔熱功能，紙杯經過掩埋後能夠分解呈鹼性物質，與酸性土壤中和，同時減少使用一次性杯套，達到減量的目的。
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <img class="img-fluid" src="static/img/IMG_0042.jpg" />
+          <p class="text-center mt-3">圖說</p>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center mb-3">
+        <div class="col-lg-8">
+          <p class="text-left" data-aos="fade-up">
+            在5月21日召開的中央流行疫情指揮中心嚴重特殊傳染性肺炎記者會上，環保署副署長沈志修提到，疫情如果趨於穩定，便要逐步回歸正常生活，希望能減少免洗餐具的用量。他也呼籲餐廳多使用重複清洗的餐具，並做好環境消毒，保障民眾外食的健康，且更為環保。「至於個人則是落實肥皂洗手，減少使用免洗餐具，為地球盡一份心力。」
+          </p>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center mb-3">
+        <div class="col-lg-5">
+          <p class="text-center">
+            政大大學報 政大資科系 2020
+          </p>
+          <p class="text-center">
+            採訪編輯 NAME NAME NAME NAME
+          </p>
+          <p class="text-center">
+            工程協力 NAME NAME NAME
+          </p>
+        </div>
+      </div>
+
+      <!-- bottom div -->
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
