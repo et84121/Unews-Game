@@ -246,7 +246,7 @@ body {
 .line {
   fill: none;
   stroke: steelblue;
-  stroke-width: 2px;
+  stroke-width: 4px;
 }
 
 .tooltiptext {
@@ -255,17 +255,21 @@ body {
   width: 120px;
   height: 45px;
   padding: 10px;
-  font: 20px sans-serif;
+  font: 20px Microsoft JhengHe;
   background: #ffffff;
   border: 3px;
   border-radius: 8px;
-  border-style: solid /*dashed*/;
-  border-color: rgb(9, 82, 219) /*#FFAC55*/;
+  border-style: solid
+    /*dashed*/
+  ;
+  border-color: rgb(9, 82, 219)
+    /*#FFAC55*/
+  ;
   overflow: hidden;
 }
 
 .h4 {
-  font-family: "cwTeXYen";
+  font-family: 'Microsoft JhengHe';
   font-size: 1.3em;
 }
 
@@ -276,7 +280,7 @@ body {
 }
 
 .policy_button {
-  background-color: #4caf50;
+  background-color: #4CAF50;
   /* Green */
   border: none;
   color: white;
@@ -288,28 +292,38 @@ body {
   margin: 4px 2px;
   cursor: pointer;
 }
+.policy_button:hover{
+color:#003C9D;
+background-color:#fff;
+border:2px #003C9D solid;
+}
 
+.d3_area{
+  width: 1020px;/*990*/
+  height: 620px;/*500*/
+}
 .policy_area {
   background-color: rgb(61, 61, 61);
-  position: absolute;
+  float:right;
   text-align: center;
-  width: 970px;
-  height: 480px;
+  width: 300px;/*990*/
+  height: 500px;/*500*/
   padding: 10px;
-  font: 20px sans-serif;
+  font: 20px Microsoft JhengHe;
   opacity: 0;
   display: none;
+
 }
 
 .policy_text {
-  position: absolute;
-  text-align: center;
-  width: 530px;
-  height: 200px;
-  margin: 10px 150px 10px 200px;
-  font: 16px sans-serif;
+  text-align: justify;
+  align-items: center;
+  width: 280px;
+  height: 480px;
+  font: 18px;
   color: white;
   display: none;
+  
 }
 
 .timeline {

@@ -1,14 +1,17 @@
 let IsTimelineChart = true;
+let CanTimeOut = true;
 //浮現政策功能 改變透明度
 
 function policy_ComeOut(id) {
   if (IsTimelineChart == false) {
-    IsTimelineChart = true;
     //reAni();
     //pathBegin();//讀不到
-    kwsk(true);
+    kwsk2(false);
     //d3.timeout(policy_ComeOut,3000,id);
   } else {
+    CanTimeOut = false;
+    onlyTimeLineOut(true);
+    onlyTimeLine(id, true);
     var area = d3
       .select(".policy_area")
       .style("display", "block")
@@ -20,50 +23,77 @@ function policy_ComeOut(id) {
     d3.select("#news" + id).style("opacity", "0.7");
 
     d3.selectAll(".policy_text").style("display", "none");
-    d3.select("#text" + id).style("display", "block");
-    d3.selectAll(".timeline").style("opacity", "0").style("display", "none");
+    if (id == 1) {
+      d3.select("#text" + id)
+        .style("display", "block")
+        .style("height", "200px");
+    } else if (id == 2) {
+      d3.select("#text" + id)
+        .style("display", "block")
+        .style("height", "180px");
+    } else {
+      d3.select("#text" + id).style("display", "flex");
+    }
+    /*
+    d3.selectAll(".timeline")
+        .style("opacity", "0")
+        .style("display", "none");
+    d3.select("#timeline" + id)
+        .transition()
+        .duration(500)
+        .style("opacity", "1")
+        .style("display", "block");*/
+  }
+}
+function onlyTimeLine(id, CanTimeOut) {
+  if (CanTimeOut) {
+    onlyTimeLineOut(true);
     d3.select("#timeline" + id)
       .transition()
-      .duration(500)
+      .duration(300)
       .style("opacity", "1")
-      .style("display", "block");
+      .style("display", "");
+  }
+}
+function onlyTimeLineOut(CanTimeOut) {
+  if (CanTimeOut) {
+    d3.selectAll(".timeline").style("opacity", "0").style("display", "none");
   }
 }
 function close_text() {
+  CanTimeOut = true;
+  onlyTimeLineOut(CanTimeOut);
   d3.select(".policy_area").style("opacity", "0").style("display", "none");
   d3.selectAll(".policy_button").style("opacity", "1");
   d3.selectAll(".timeline").style("opacity", "0").style("display", "none");
 }
 
-function kwsk(IskwskChart) {
+function kwsk(IsTimeLine) {
   /*原先圖表與1月~3月的圖表轉場*/
 
-  let line1 = d3.select("#pBLine").interrupt();
-  let line2 = d3.select("#paperCLine").interrupt();
-  let line3 = d3.select("#pCLine").interrupt();
+  var dur = 2000;
 
-  var pathLength1 = line1.node().getTotalLength();
-  var pathLength2 = line2.node().getTotalLength();
-  var pathLength3 = line3.node().getTotalLength();
-  var waitpoint1 = [1, 0.22]; //左邊表示消失，右邊表示長出來
-  var waitpoint2 = [1, 0.115];
-  var waitpoint3 = [1, 0.2];
-  var counter = 0;
-  var dur = 3000;
-
-  if (IskwskChart == false) {
+  if (IsTimeLine == true) {
     IsTimelineChart = false;
     close_text();
-    counter = 0;
     close_PPchart();
-    d3.timeout(pathAni2, 3000);
-    d3.select("#news6").html("看20年來的趨勢");
-  } else {
-    IsTimelineChart = true;
-    counter = 1;
+    d3.timeout(pathAni2, 2000);
+    //d3.select("#news6").html("看20年來的趨勢");
+  }
+}
+function kwsk2(IsTimeLine) {
+  /*原先圖表與1月~3月的圖表轉場*/
+
+  var dur = 2000;
+
+  if (IsTimeLine == false) {
+    //IsTimelineChart = true;
     close_PPchart2();
-    d3.timeout(pathAni1, 3000);
-    d3.select("#news6").html("2020詳細數據比較");
+    onlyTimeLineOut();
+    d3.timeout(pathAni1, 1000);
+    d3.timeout(function () {
+      IsTimelineChart = true;
+    }, 1);
   }
 }
 
@@ -74,14 +104,14 @@ function pathAni1() {
   let line1 = d3.select("#pBLine").interrupt();
   let line2 = d3.select("#paperCLine").interrupt();
   let line3 = d3.select("#pCLine").interrupt();
-  var waitpoint1 = [0.22];
-  var waitpoint2 = [0.115];
-  var waitpoint3 = [0.2];
+  var waitpoint1 = [0];
+  var waitpoint2 = [0];
+  var waitpoint3 = [0];
   var pathLength1 = line1.node().getTotalLength();
   var pathLength2 = line2.node().getTotalLength();
   var pathLength3 = line3.node().getTotalLength();
 
-  var dur = 3000;
+  var dur = 2000;
 
   line1
     .attr("stroke-dashoffset", pathLength1)
@@ -106,59 +136,23 @@ function pathAni1() {
 function pathAni2() {
   d3.select("#PPchart2").style("display", "");
   d3.select("#PPchart").style("display", "none");
+  var data3 = [32641, 34824, 11739, 31283, 43069, 45246];
 
-  let line1 = d3.select("#pBLine2").interrupt();
-  let line2 = d3.select("#paperCLine2").interrupt();
-  let line3 = d3.select("#pCLine2").interrupt();
-  let line4 = d3.select("#BpBLine2").interrupt();
-  let line5 = d3.select("#BpaperCLine2").interrupt();
-  let line6 = d3.select("#BpCLine2").interrupt();
+  var height = 320;
 
-  var pathLength1 = line1.node().getTotalLength();
-  var pathLength2 = line2.node().getTotalLength();
-  var pathLength3 = line3.node().getTotalLength();
-  var pathLength4 = line4.node().getTotalLength();
-  var pathLength5 = line5.node().getTotalLength();
-  var pathLength6 = line6.node().getTotalLength();
+  var yScale = d3
+    .scaleLinear()
+    .domain([0, d3.max(data3)])
+    .range([0, height]);
 
-  var dur = 3000;
-
-  line1
-    .attr("stroke-dashoffset", pathLength1)
-    .attr("stroke-dasharray", pathLength1)
-    .transition()
-    .duration(dur)
-    .attr("stroke-dashoffset", 0);
-  line2
-    .attr("stroke-dashoffset", pathLength2)
-    .attr("stroke-dasharray", pathLength2)
-    .transition()
-    .duration(dur)
-    .attr("stroke-dashoffset", 0);
-  line3
-    .attr("stroke-dashoffset", pathLength3)
-    .attr("stroke-dasharray", pathLength3)
-    .transition()
-    .duration(dur)
-    .attr("stroke-dashoffset", 0);
-  line4
-    .attr("stroke-dashoffset", pathLength4)
-    .attr("stroke-dasharray", pathLength4)
-    .transition()
-    .duration(dur)
-    .attr("stroke-dashoffset", 0);
-  line5
-    .attr("stroke-dashoffset", pathLength5)
-    .attr("stroke-dasharray", pathLength5)
-    .transition()
-    .duration(dur)
-    .attr("stroke-dashoffset", 0);
-  line6
-    .attr("stroke-dashoffset", pathLength6)
-    .attr("stroke-dasharray", pathLength6)
-    .transition()
-    .duration(dur)
-    .attr("stroke-dashoffset", 0);
+  for (i = 1; i <= 6; i++) {
+    d3.select("#New_rect" + i)
+      .data(data3)
+      .transition()
+      .duration(1000)
+      .attr("y", height - yScale(data3[i - 1]))
+      .attr("height", yScale(data3[i - 1]));
+  }
 }
 
 function close_PPchart() {
@@ -170,42 +164,39 @@ function close_PPchart() {
   var pathLength2 = line2.node().getTotalLength();
   var pathLength3 = line3.node().getTotalLength();
 
-  var dur = 3000;
+  var dur = 2000;
 
   line1.transition().duration(dur).attr("stroke-dashoffset", pathLength1);
   line2.transition().duration(dur).attr("stroke-dashoffset", pathLength2);
   line3.transition().duration(dur).attr("stroke-dashoffset", pathLength3);
 }
 function close_PPchart2() {
-  let line1 = d3.select("#pBLine2").interrupt();
-  let line2 = d3.select("#paperCLine2").interrupt();
-  let line3 = d3.select("#pCLine2").interrupt();
-  let line4 = d3.select("#BpBLine2").interrupt();
-  let line5 = d3.select("#BpaperCLine2").interrupt();
-  let line6 = d3.select("#BpCLine2").interrupt();
+  d3.select("#PPchart2").style("display", "");
+  d3.select("#PPchart").style("display", "none");
 
-  var pathLength1 = line1.node().getTotalLength();
-  var pathLength2 = line2.node().getTotalLength();
-  var pathLength3 = line3.node().getTotalLength();
-  var pathLength4 = line4.node().getTotalLength();
-  var pathLength5 = line5.node().getTotalLength();
-  var pathLength6 = line6.node().getTotalLength();
+  var data3 = [32641, 34824, 11739, 31283, 43069, 45246];
 
-  var dur = 3000;
+  var height = 320;
 
-  line1.transition().duration(dur).attr("stroke-dashoffset", pathLength1);
-  line2.transition().duration(dur).attr("stroke-dashoffset", pathLength2);
-  line3.transition().duration(dur).attr("stroke-dashoffset", pathLength3);
-  line4.transition().duration(dur).attr("stroke-dashoffset", pathLength4);
-  line5.transition().duration(dur).attr("stroke-dashoffset", pathLength5);
-  line6.transition().duration(dur).attr("stroke-dashoffset", pathLength6);
-  //d3.timeout(function C(){d3.select("#PPchart2").style("display","none");d3.select("#PPchart").style("opacity","1");},3000);
+  var yScale = d3
+    .scaleLinear()
+    .domain([0, d3.max(data3)])
+    .range([0, height]);
+
+  for (i = 1; i <= 6; i++) {
+    d3.select("#New_rect" + i)
+      .data(data3)
+      .transition()
+      .duration(1000)
+      .attr("y", height)
+      .attr("height", 0);
+  }
 }
 
 /*=====================宣告全域變數=========================================*/
 // set the dimensions and margins of the graph
-var margin = { top: 200, right: 20, bottom: 30, left: 80 }, //left50
-  width = 990 - margin.left - margin.right,
+var margin = { top: 150, right: 20, bottom: 30, left: 80 }, //left50
+  width = 700 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom; //500
 
 // parse the date / time / Year
@@ -263,6 +254,7 @@ d3.csv("static/data/GarbageData.csv").then(function (data) {
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .style("background", "rgb(245,245,255)")
+    .on("click", close_text)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -275,11 +267,8 @@ d3.csv("static/data/GarbageData.csv").then(function (data) {
   });
 
   // Scale the range of the data
-  x.domain(
-    d3.extent(data, function (d) {
-      return d.date;
-    })
-  );
+  //x.domain(d3.extent(data, function (d) { return d.date; }));
+  x.domain(d3.extent([parseTime(2001), parseTime(2020)]));
   y.domain([
     0,
     d3.max(data, function (d) {
@@ -327,10 +316,19 @@ d3.csv("static/data/GarbageData.csv").then(function (data) {
   svg
     .append("text")
     .style("font-size", "14px")
+
     //.style('font-weight', 'bold')
     .attr("x", -26)
     .attr("y", -10)
     .text("公噸");
+  svg
+    .append("text")
+    .style("font-size", "28px")
+
+    .style("font-weight", "bold")
+    .attr("x", 60)
+    .attr("y", -90)
+    .text("紙容器與塑膠廢棄物近二十年變化");
   //滑鼠事件
   //d3.select("#PPchart")
   //.on("mouseover", ChartMouseOver)
@@ -348,27 +346,13 @@ d3.csv("static/data/GarbageData.csv").then(function (data) {
     .attr("height", 15)
     .attr("x", 20)
     .attr("y", -50)
-    .style("fill", "#29E7E3");
-  svg
-    .append("text")
-    //.style('font-size', '24px')
-    .style("font-weight", "bold")
-    .attr("x", 40)
-    .attr("y", -37)
-    .text("塑膠袋生產量");
-
-  svg
-    .append("rect")
-    .attr("width", 15)
-    .attr("height", 15)
-    .attr("x", 170)
-    .attr("y", -50)
     .style("fill", "#24EB98");
   svg
     .append("text")
     //.style('font-size', '24px')
     .style("font-weight", "bold")
-    .attr("x", 190)
+
+    .attr("x", 40)
     .attr("y", -37)
     .text("紙容器回收量");
 
@@ -376,14 +360,31 @@ d3.csv("static/data/GarbageData.csv").then(function (data) {
     .append("rect")
     .attr("width", 15)
     .attr("height", 15)
-    .attr("x", 320)
+    .attr("x", 190)
+    .attr("y", -50)
+    .style("fill", "#29E7E3");
+  svg
+    .append("text")
+    //.style('font-size', '24px')
+    .style("font-weight", "bold")
+
+    .attr("x", 210)
+    .attr("y", -37)
+    .text("塑膠袋內銷量");
+
+  svg
+    .append("rect")
+    .attr("width", 15)
+    .attr("height", 15)
+    .attr("x", 360)
     .attr("y", -50)
     .style("fill", "#09AAE3");
   svg
     .append("text")
     //.style('font-size', '24px')
     .style("font-weight", "bold")
-    .attr("x", 340)
+
+    .attr("x", 380)
     .attr("y", -37)
     .text("塑膠容器回收量");
 
@@ -400,11 +401,11 @@ d3.csv("static/data/GarbageData.csv").then(function (data) {
   //updatePath2(valueline2);
   //updatePath3(valueline3);
 
-  timeline_ComeOut(30, "timeline1");
-  timeline_ComeOut(217.2, "timeline2");
-  timeline_ComeOut(263.7, "timeline3");
-  timeline_ComeOut(779.5, "timeline4");
-  timeline_ComeOut(826, "timeline5");
+  timeline_ComeOut(14.8, "timeline1");
+  timeline_ComeOut(141.2, "timeline2");
+  timeline_ComeOut(172.7, "timeline3");
+  timeline_ComeOut(520, "timeline4");
+  timeline_ComeOut(551.5, "timeline5");
 
   let counter = 0;
   //policy();
@@ -453,13 +454,13 @@ d3.csv("static/data/GarbageData.csv").then(function (data) {
       //.style("stroke-width","1px")
       .style("stroke-opacity", "0.3");
 
-    d3.select(this).style("stroke-width", "4px").style("stroke-opacity", "1");
+    d3.select(this).style("stroke-width", "7px").style("stroke-opacity", "1");
   }
 
   //滑鼠離開
   function handleMouseOut() {
     d3.selectAll(".line")
-      .style("stroke-width", "2px")
+      .style("stroke-width", "4px")
       .style("stroke-opacity", "1");
   }
 
@@ -489,10 +490,10 @@ d3.csv("static/data/GarbageData.csv").then(function (data) {
     pathAni();
   }
   function pathAni() {
-    var waitpoint1 = [0.22];
-    var waitpoint2 = [0.115];
-    var waitpoint3 = [0.2];
-    var dur = [5000];
+    var waitpoint1 = [0];
+    var waitpoint2 = [0];
+    var waitpoint3 = [0];
+    var dur = [3000];
     var pathLength1 = updatedPath1.node().getTotalLength();
     var pathLength2 = updatedPath2.node().getTotalLength();
     var pathLength3 = updatedPath3.node().getTotalLength();
@@ -528,21 +529,21 @@ d3.csv("static/data/GarbageData.csv").then(function (data) {
       .attr("class", "timeline")
       .attr("width", 3)
       .attr("x", 95.8 + x)
-      .attr("height", 270)
-      .attr("y", 200);
+      .attr("height", 320)
+      .attr("y", 150);
   }
 });
 Draw_Second_Graph();
 function Draw_Second_Graph() {
   /*用以做出2020 第一季圖表 (第二章圖表)*/
 
-  var margin = { top: 100, right: 20, bottom: 30, left: 80 }, //left50
-    width = 790 - margin.left - margin.right,
+  var margin = { top: 150, right: 20, bottom: 30, left: 80 }, //left50
+    width = 700 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom; //500
   /* 修改看看 //目前最正確版*/
   var x = d3
-    .scaleTime()
-    .domain([new Date("2020-01-01"), new Date("2020-03-01")])
+    .scaleLinear()
+    //.domain([new Date("2020-01-01"), new Date("2020-03-01")])
     .range([0, width]);
   //var x = d3.scaleLinear().range([0, width]);
 
@@ -572,11 +573,8 @@ function Draw_Second_Graph() {
     });
 
     // Scale the range of the data
-    x.domain(
-      d3.extent(data2, function (d) {
-        return d.date;
-      })
-    );
+
+    //x.domain(d3.extent(data2, function (d) { return d.date; }));
     y.domain([
       0,
       d3.max(data2, function (d) {
@@ -584,124 +582,45 @@ function Draw_Second_Graph() {
       }),
     ]);
 
-    // define the 1st line
-    var valueline = d3
-      .line()
-      .x(function (d) {
-        return x(d.date);
-      })
-      .y(function (d) {
-        return y(d.pB);
-      });
+    /*長條圖*/
+    var data3 = [32641, 34824, 11739, 31283, 43069, 45246];
 
-    // define the 2nd line
-    var valueline2 = d3
-      .line()
-      .x(function (d) {
-        return x(d.date);
-      })
-      .y(function (d) {
-        return y(d.paperC);
-      });
+    var Bar_Step = 40;
+    var Bar_Padding = 25;
+    var rectWidth = 50;
 
-    // define the 3rd line
-    var valueline3 = d3
-      .line()
-      .x(function (d) {
-        return x(d.date);
-      })
-      .y(function (d) {
-        return y(d.pC);
-      });
+    var yScale = d3
+      .scaleLinear()
+      .domain([0, d3.max(data3)])
+      .range([0, height]);
 
-    // define the 1st line // 108
-    var valueline4 = d3
-      .line()
-      .x(function (d) {
-        return x(d.date);
-      })
-      .y(function (d) {
-        return y(d.BpB);
-      });
-
-    // define the 2nd line //108
-    var valueline5 = d3
-      .line()
-      .x(function (d) {
-        return x(d.date);
-      })
-      .y(function (d) {
-        return y(d.BpaperC);
-      });
-
-    // define the 3rd line //108
-    var valueline6 = d3
-      .line()
-      .x(function (d) {
-        return x(d.date);
-      })
-      .y(function (d) {
-        return y(d.BpC);
-      });
-
-    /*增加三條折線圖*/
-    //避免id重複 後面多加2
-    // Add the valueline path.
     svg
-      .append("path")
-      .data([data2])
-      .attr("id", "pBLine2")
-      .attr("class", "line")
-      .style("stroke", "hsl(354,83%,63%)")
-      .attr("d", valueline);
-
-    // Add the valueline2 path.
-    svg
-      .append("path")
-      .data([data2])
-      .attr("id", "paperCLine2")
-      .attr("class", "line")
-      .style("stroke", "hsl(155, 83%, 53%)")
-      .attr("d", valueline2);
-
-    // Add the valueline3 path.
-    svg
-      .append("path")
-      .data([data2])
-      .attr("id", "pCLine2")
-      .attr("class", "line")
-      .style("stroke", "hsl(196, 92%, 46%)")
-      .attr("d", valueline3);
-
-    //Add 108 三條折線
-    svg
-      .append("path")
-      .data([data2])
-      .attr("id", "BpBLine2")
-      .attr("class", "line")
-      .style("stroke", "hsl(344,73%,43%)") //-10-10-20
-      //.style("opacity",0.7)
-      .attr("d", valueline4);
-
-    // Add the valueline2 path.
-    svg
-      .append("path")
-      .data([data2])
-      .attr("id", "BpaperCLine2")
-      .attr("class", "line")
-      .style("stroke", "hsl(145,73%,33%)") //hsl(155, 83%, 53%)
-      //.style("opacity",0.7)
-      .attr("d", valueline5);
-
-    // Add the valueline3 path.
-    svg
-      .append("path")
-      .data([data2])
-      .attr("id", "BpCLine2")
-      .attr("class", "line")
-      .style("stroke", "hsl(191,87%,31%)") //hsl(196, 92%, 46%)
-      //.style("opacity",0.7)
-      .attr("d", valueline6);
+      .selectAll("rect")
+      .data(data3)
+      .enter()
+      .append("rect")
+      .attr("id", function (d, i) {
+        return "New_rect" + (i + 1);
+      })
+      .attr("fill", function (d, i) {
+        if (i % 2 == 0) {
+          return "hsl(191,87%,31%)";
+        } else {
+          return "hsl(196, 92%, 46%)";
+        }
+      })
+      .attr("x", function (d, i) {
+        if (i % 2 == 1) {
+          return Bar_Step + i * (rectWidth + Bar_Step);
+        } else {
+          return Bar_Step + i * (rectWidth + Bar_Step) + Bar_Padding;
+        }
+      })
+      .attr("width", rectWidth)
+      .attr("y", function (d, i) {
+        return height;
+      })
+      .attr("height", 0);
 
     /*
         // Add the X Axis  //old
@@ -773,9 +692,9 @@ function Draw_Second_Graph() {
     /*新定義的x軸---用以表示月份*/
     var xAxis = d3
       .axisBottom(x)
-      .tickFormat(locale.format("%b月"))
+      //.tickFormat(locale.format("%b月"))
       //.tickFormat(d3.timeFormat("%B"))
-      .ticks(2);
+      .ticks(0);
 
     svg
       .append("g")
@@ -794,167 +713,65 @@ function Draw_Second_Graph() {
       .attr("y", -10)
       .text("公噸");
 
-    /*三種垃圾代表色圖標*/
     svg
       .append("rect")
       .attr("width", 15)
       .attr("height", 15)
-      .attr("x", 20)
-      .attr("y", -60)
-      .style("fill", "hsl(354,83%,63%)");
-    svg
-      .append("text")
-      //.style('font-size', '24px')
-      .style("font-weight", "bold")
-      .attr("x", 40)
-      .attr("y", -47)
-      .text("109年塑膠袋生產量");
-
-    svg
-      .append("rect")
-      .attr("width", 15)
-      .attr("height", 15)
-      .attr("x", 220)
-      .attr("y", -60)
-      .style("fill", "hsl(155, 83%, 53%)");
-    svg
-      .append("text")
-      //.style('font-size', '24px')
-      .style("font-weight", "bold")
-      .attr("x", 240)
-      .attr("y", -47)
-      .text("109年紙容器回收量");
-
-    svg
-      .append("rect")
-      .attr("width", 15)
-      .attr("height", 15)
-      .attr("x", 420)
-      .attr("y", -60)
-      .style("fill", "hsl(196, 92%, 46%)");
-    svg
-      .append("text")
-      //.style('font-size', '24px')
-      .style("font-weight", "bold")
-      .attr("x", 440)
-      .attr("y", -47)
-      .text("109年塑膠容器回收量");
-
-    svg
-      .append("rect")
-      .attr("width", 15)
-      .attr("height", 15)
-      .attr("x", 20)
-      .attr("y", -40)
-      .style("fill", "hsl(344,73%,43%)");
-    svg
-      .append("text")
-      //.style('font-size', '24px')
-      .style("font-weight", "bold")
-      .attr("x", 40)
-      .attr("y", -27)
-      .text("108年塑膠袋生產量");
-
-    svg
-      .append("rect")
-      .attr("width", 15)
-      .attr("height", 15)
-      .attr("x", 220)
-      .attr("y", -40)
-      .style("fill", "hsl(145, 73%, 33%)");
-    svg
-      .append("text")
-      //.style('font-size', '24px')
-      .style("font-weight", "bold")
-      .attr("x", 240)
-      .attr("y", -27)
-      .text("108年紙容器回收量");
-
-    svg
-      .append("rect")
-      .attr("width", 15)
-      .attr("height", 15)
-      .attr("x", 420)
-      .attr("y", -40)
+      .attr("x", 100)
+      .attr("y", -50)
       .style("fill", "hsl(191,87%,31%)");
     svg
       .append("text")
       //.style('font-size', '24px')
       .style("font-weight", "bold")
-      .attr("x", 440)
-      .attr("y", -27)
-      .text("108年塑膠容器回收量");
+      .attr("x", 120)
+      .attr("y", -37)
+      .text("2019第一季數據");
+    svg
+      .append("rect")
+      .attr("width", 15)
+      .attr("height", 15)
+      .attr("x", 360)
+      .attr("y", -50)
+      .style("fill", "#09AAE3");
+    svg
+      .append("text")
+      //.style('font-size', '24px')
+      .style("font-weight", "bold")
+      .attr("x", 380)
+      .attr("y", -37)
+      .text("2020第一季數據");
 
     svg
-      .selectAll("#pBLine2")
-      .on("mouseover", pBMouseOver)
-      .on("mouseout", MouseOut);
+      .append("text")
+      .style("font-size", "14px")
+      //.style('font-weight', 'bold')
+      .attr("x", 80)
+      .attr("y", 340)
+      .text("塑膠袋內銷量");
     svg
-      .selectAll("#BpBLine2")
-      .on("mouseover", pBMouseOver)
-      .on("mouseout", MouseOut);
+      .append("text")
+      .style("font-size", "14px")
+      //.style('font-weight', 'bold')
 
+      .attr("x", 260)
+      .attr("y", 340)
+      .text("紙容器回收量");
     svg
-      .selectAll("#paperCLine2")
-      .on("mouseover", paperCMouseOver)
-      .on("mouseout", MouseOut);
-    svg
-      .selectAll("#BpaperCLine2")
-      .on("mouseover", paperCMouseOver)
-      .on("mouseout", MouseOut);
+      .append("text")
+      .style("font-size", "14px")
+      //.style('font-weight', 'bold')
 
+      .attr("x", 435)
+      .attr("y", 340)
+      .text("塑膠容器回收量");
     svg
-      .selectAll("#pCLine2")
-      .on("mouseover", pCMouseOver)
-      .on("mouseout", MouseOut);
-    svg
-      .selectAll("#BpCLine2")
-      .on("mouseover", pCMouseOver)
-      .on("mouseout", MouseOut);
+      .append("text")
+      .style("font-size", "28px")
 
-    //應該讓同種類不同年的一起醒目
-    //滑鼠進入
-    function pBMouseOver() {
-      //其他線段
-      d3.selectAll(".line")
-        //.style("stroke-width","1px")
-        .style("stroke-opacity", "0.3");
-      d3.select("#pBLine2")
-        .style("stroke-width", "4px")
-        .style("stroke-opacity", "1");
-      d3.select("#BpBLine2")
-        .style("stroke-width", "4px")
-        .style("stroke-opacity", "1");
-    }
-    function paperCMouseOver() {
-      //其他線段
-      d3.selectAll(".line")
-        //.style("stroke-width","1px")
-        .style("stroke-opacity", "0.3");
-      d3.select("#paperCLine2")
-        .style("stroke-width", "4px")
-        .style("stroke-opacity", "1");
-      d3.select("#BpaperCLine2")
-        .style("stroke-width", "4px")
-        .style("stroke-opacity", "1");
-    }
-    function pCMouseOver() {
-      //其他線段
-      d3.selectAll(".line")
-        //.style("stroke-width","1px")
-        .style("stroke-opacity", "0.3");
-      d3.select("#pCLine2")
-        .style("stroke-width", "4px")
-        .style("stroke-opacity", "1");
-      d3.select("#BpCLine2")
-        .style("stroke-width", "4px")
-        .style("stroke-opacity", "1");
-    }
-    //滑鼠離開
-    function MouseOut() {
-      d3.selectAll(".line")
-        .style("stroke-width", "2px")
-        .style("stroke-opacity", "1");
-    }
+      .style("font-weight", "bold")
+      .attr("x", 90)
+      .attr("y", -90)
+      .text("疫情期間與去年同期數據比較");
   });
 }

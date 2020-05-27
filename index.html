@@ -197,7 +197,7 @@
       <div class="row align-items-center justify-content-center mb-5">
         <div class="col-xl-6">
           <p class="pt-3 text-justify">
-            此外，疫情升溫也助長宅經濟（註2），民眾消費改以數位通路添購日常生活所需。根據經濟部統計，電子購物及郵購業今年第一季的網路銷售金額為502.6億元，去年第一季則為429.5億元，銷售額增長16.5％。網路購物雖能降低人與人的接觸機會，卻也增加包裝材料垃圾，王耀晟指出，由於環保署去年提出「網購包裝減量指引」，109年第一季包材每件平均減少近6％重量，仍會持續努力和業者協調，達成今年欲減少1700噸網購包裝的目標。
+            此外，疫情升溫也助長宅經濟（註2），民眾消費改以數位通路添購日常生活所需。根據經濟部統計，電子購物及郵購業今年第一季的網路銷售金額為502.6億元，去年第一季則為429.5億元，銷售額增長16.5％。網路購物雖能降低人與人的接觸機會，卻也增加包裝材料垃圾，環保署廢棄物管理處第一科科長王耀晟指出，由於環保署去年提出「網購包裝減量指引」，109年第一季包材每件平均減少近6％重量，仍會持續努力和業者協調，達成今年欲減少1700噸網購包裝的目標。
           </p>
           <p class="pt-3 ps text-justify">
             註2：指人們減少出門消費所帶來的商機與現象。
@@ -230,93 +230,44 @@
 
       <div class="row align-items-center justify-content-center mb-4 mt-4">
         <div class="col-xl-6 col-lg-12">
-          <div id="d3">
+          <div id="d3" class="d3_area">
             <!-- <div class="tooltiptext" style="height: 25px;left:280px;top:240px">塑膠容器</div> -->
-            <button
-              class="btn btn-outline-primary m-1"
-              id="news1"
-              onclick="policy_ComeOut(1)"
-            >
-              2002　分階段限用塑膠袋及免洗餐具
-            </button>
-            <button
-              class="btn btn-outline-primary m-1"
-              id="news2"
-              onclick="policy_ComeOut(2)"
-            >
-              2006　限塑政策精進方案
-            </button>
-            <button
-              class="btn btn-outline-primary m-1"
-              id="news3"
-              onclick="policy_ComeOut(3)"
-            >
-              2007　要求塑膠包裝減量
-            </button>
-            <button
-              class="btn btn-outline-primary m-1"
-              id="news4"
-              onclick="policy_ComeOut(4)"
-            >
-              2018　擴大實施限塑
-            </button>
-            <button
-              class="btn btn-outline-primary m-1"
-              id="news5"
-              onclick="policy_ComeOut(5)"
-            >
-              2019　一次性塑膠吸管限制使用對象
-            </button>
-            <button
-              class="btn btn-outline-info m-1"
-              id="news6"
-              onclick="kwsk(!IsTimelineChart)"
-            >
-              2020詳細數據比較
-            </button>
-            <br />
-
-            <div class="policy_area mt-1" onclick="close_text()">
-              <div class="policy_text" id="text1">
-                2002 分階段限用塑膠袋及免洗餐具
-                <p>
-                  行政院環保署署長郝龍斌宣布，2002年7月1日起分階段限用塑膠袋及免洗餐具，並<span
-                    style="font-weight: bolder;"
-                    >禁用厚度低於0.06公釐的塑膠袋</span
-                  >
+            <button class="btn btn-secondary m-1" id="news1" onclick="policy_ComeOut(1)" onmouseover="onlyTimeLine(1,CanTimeOut)" onmouseout="onlyTimeLineOut(CanTimeOut)">2002　分階段限用塑膠袋及免洗餐具</button>
+            <button class="btn btn-secondary m-1" id="news2" onclick="policy_ComeOut(2)" onmouseover="onlyTimeLine(2,CanTimeOut)" onmouseout="onlyTimeLineOut(CanTimeOut)">2006　限塑政策精進方案</button>
+            <button class="btn btn-secondary m-1" id="news3" onclick="policy_ComeOut(3)" onmouseover="onlyTimeLine(3,CanTimeOut)" onmouseout="onlyTimeLineOut(CanTimeOut)">2007　要求塑膠包裝減量</button>
+            
+            <button class="btn btn-secondary m-1" id="news4" onclick="policy_ComeOut(4)" onmouseover="onlyTimeLine(4,CanTimeOut)" onmouseout="onlyTimeLineOut(CanTimeOut)">2018　擴大實施限塑</button>
+            <button class="btn btn-secondary m-1" id="news5" onclick="policy_ComeOut(5)" onmouseover="onlyTimeLine(5,CanTimeOut)" onmouseout="onlyTimeLineOut(CanTimeOut)">2019　一次性塑膠吸管限制使用對象</button>
+            <button class="btn btn-info m-1" id="news6" onclick="kwsk(IsTimelineChart)">疫情期間與去年同期數據比較</button>
+            <button class="btn btn-secondary m-1" id="news7" onclick="kwsk2(IsTimelineChart)">看20年來的趨勢</button>
+            
+        
+            <div class="policy_area">
+              <div class="policy_text p-3" id="text1">
+                2002 分階段限用塑膠袋及免洗餐具<br><br>
+                  行政院環保署署長郝龍斌宣布，2002年7月1日起分階段限用塑膠袋及免洗餐具，並<span style="font-weight: bolder;">禁用厚度低於0.06公釐的塑膠袋</span>
                   。此舉導致當年上千名塑膠免洗餐具業者在中正紀念堂集結，舉行「支持環保、拒絕失業」大遊行，抗議環保署禁用塑膠袋、免洗餐具政策。
-                </p>
+        
               </div>
-
-              <div class="policy_text" id="text2">
-                2006 限塑政策精進方案
-                <p>
-                  塑膠袋增厚之後，<span style="font-weight: bolder;"
-                    >重複使用率並未跟著提高，導致塑膠用量不減反增</span
-                  >。環保署頒布「限塑政策精進方案」，取消對有店面餐飲業購物用塑膠袋限制。
-                </p>
+              <div class="policy_text  p-3" id="text2">
+                2006 限塑政策精進方案<br><br>
+                  塑膠袋增厚之後，<span style="font-weight: bolder;">重複使用率並未跟著提高，導致塑膠用量不減反增</span>。環保署頒布「限塑政策精進方案」，取消對有店面餐飲業購物用塑膠袋限制。
               </div>
-
-              <div class="policy_text" id="text3">
-                2007 要求塑膠包裝減量
-                <p></p>
+              <div class="policy_text  p-3" id="text3">
+                2007 要求塑膠包裝減量<br><br>
                 限用塑膠類托盤及包裝盒，要求賣場的生鮮食品包裝減量，或使用替代生物可分解材質（如PLA）。
               </div>
-              <div
-                class="policy_text"
-                id="text4"
-                style="margin: 10px 50px 10px 200px; width: 580px;"
-              >
-                2018 擴大實施限塑
-                <p></p>
-                全國擴大實施限塑，環保局喊出「2020內用禁用、2025以價制量限用、2030全面禁用吸管、飲料杯、購物袋、免洗餐具等四種一次性塑膠製品」口號<br />
+              <div class="policy_text  p-3" id="text4">
+                2018 擴大實施限塑<br><br>
+                全國擴大實施限塑，環保署喊出「2020內用禁用、2025以價制量限用、2030全面禁用吸管、飲料杯、購物袋、免洗餐具等四種一次性塑膠製品」口號。<br><br>
                 7月1日環保署宣布，擴大禁止提供免費塑膠袋管制範圍，新增7大類管制對象，包含麵包店、洗衣店及飲料店等約8萬家業者，不得再免費提供購物用塑膠袋。
+        
               </div>
-              <div class="policy_text" id="text5">
-                2019 一次性塑膠吸管限制使用對象
-                <p></p>
+              <div class="policy_text  p-3" id="text5">
+                2019 一次性塑膠吸管限制使用對象<br><br>
                 7月1日起實施〈一次性塑膠吸管限制使用對象、實施方式及實施日期〉，「內用」不得提供一次性塑膠吸管，容許甘蔗渣、紙、生物可分解塑膠等吸管作為替代用品。
               </div>
+        
             </div>
           </div>
         </div>
