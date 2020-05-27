@@ -131,6 +131,12 @@ html {
   scroll-snap-type: y proximity;
 }
 
+body {
+  background-color: rgb(230, 251, 255) !important;
+  color: rgb(8, 25, 45) !important;
+  line-height: 1.8 !important;
+}
+
 /* Text Selection Color */
 
 ::-moz-selection {
