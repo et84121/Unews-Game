@@ -21,10 +21,10 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap"
       rel="stylesheet"
     />
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="TemplateData/UnityProgress.js"></script>
+    <script async src="https://d3js.org/d3.v5.min.js"></script>
+    <script async src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
-    <script src="static/js/main.js"></script>
+    <script async src="static/js/main.js"></script>
     <script>
       var unityInstance = UnityLoader.instantiate(
         "unityContainer",
@@ -32,31 +32,51 @@
         { onProgress: UnityProgress }
       );
     </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-22918013-11"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-22918013-11");
+    </script>
+
     <title>Unews 政大大學報</title>
   </head>
   <body>
     <div class="container-fluid">
       <div class="helloSection row align-items-center justify-content-center">
         <div class="col">
-          <h1 class="headH1" data-aos="flip-left" style="width: 12em;">
+          <h1
+            class="headH1"
+            data-aos="flip-left"
+            data-aos-delay="350"
+            style="width: 12em;"
+          >
             美麗回收場、政大外帶人
           </h1>
         </div>
 
-        <p data-aos="fade-up" class="text-left gameText p-3">
+        <p
+          data-aos="fade-up"
+          data-aos-offset="220"
+          class="text-left gameText p-3"
+        >
           近年環保意識抬頭，減少使用一次性餐具已經成為世界趨勢。
           <br />然而今年因新型冠狀病毒肺炎（COVID-19）疫情嚴峻，台灣政府放寬一次性餐具使用措施，以降低接觸傳染的風險。
           <br />如今，使用一次後立即拋棄的免洗餐具大幅度增加，儼然已成為環境問題。
         </p>
       </div>
 
-      <div class="row align-items-center justify-content-center">
-        <div class="col col-lg-8"></div>
-      </div>
-
       <div
         class="row align-items-center justify-content-center"
-        style="min-height: 100vh;"
+        style="min-height: 110vh;"
       >
         <div class="col-lg-8">
           <div id="unityContainer"></div>
@@ -65,7 +85,12 @@
 
       <div class="section2 row align-items-center justify-content-center">
         <div class="col-lg-8">
-          <h1 class="helloH1" style="width: 19em;" data-aos="flip-left">
+          <h1
+            class="helloH1"
+            style="width: 19em;"
+            data-aos="flip-left"
+            data-aos-offset="220"
+          >
             疫情之下人心惶惶，人民生活型態大轉變
           </h1>
         </div>
@@ -188,7 +213,12 @@
 
       <div class="section3 row align-items-center justify-content-center">
         <div class="col-lg-8">
-          <h1 class="helloH1" style="width: 19em;" data-aos="flip-left">
+          <h1
+            class="helloH1"
+            style="width: 19em;"
+            data-aos="flip-left"
+            data-aos-offset="220"
+          >
             疫情放寬限塑政策　18年政策成效恐崩壞
           </h1>
         </div>
@@ -382,7 +412,12 @@
 
       <div class="section4 row align-items-center justify-content-center">
         <div class="col-lg-8">
-          <h1 class="helloH1" style="width: 19em;" data-aos="flip-left">
+          <h1
+            class="helloH1"
+            style="width: 19em;"
+            data-aos="flip-left"
+            data-aos-offset="220"
+          >
             紙容器銷量急速升高　回收業者恐不及及
           </h1>
         </div>
@@ -437,7 +472,12 @@
 
       <div class="section5 row align-items-center justify-content-center mb-3">
         <div class="col-lg-8">
-          <h1 class="helloH1" style="width: 20em;" data-aos="flip-left">
+          <h1
+            class="helloH1"
+            style="width: 20em;"
+            data-aos="flip-left"
+            data-aos-offset="220"
+          >
             垃圾汙染應從根本解決　塑膠轉型成新希望
           </h1>
         </div>
