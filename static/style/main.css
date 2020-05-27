@@ -10,8 +10,15 @@
   background-size: cover;
 }
 
-.helloH1 {
+.headH1 {
   background-color: rgba(255, 255, 255, 0.7);
+  margin: auto;
+  padding: 1rem;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.helloH1 {
+  background-color: white;
   margin: auto;
   padding: 1rem;
   font-family: "Noto Sans TC", sans-serif;
@@ -19,8 +26,13 @@
 
 .gameText {
   background-color: rgb(255, 174, 0);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  position: absolute;
+  bottom: 5rem;
+}
+
+.imgDesc {
+  color: gray;
+  font-size: 16px;
 }
 
 .section2 {
@@ -71,7 +83,92 @@
   background-size: cover;
 }
 
+.footer {
+  background-color: rgb(180, 246, 255);
+}
+
+p,
+button,
+div {
+  font-family: "Noto Sans TC", sans-serif !important;
+}
+
 p {
-  font-family: "Noto Sans TC", sans-serif;
-  font-size: large;
+  font-size: 20px;
+}
+
+/* d3 chart css */
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.tooltiptext {
+  position: absolute;
+  text-align: center;
+  width: 120px;
+  height: 45px;
+  padding: 10px;
+  font: 20px sans-serif;
+  background: #ffffff;
+  border: 3px;
+  border-radius: 8px;
+  border-style: solid /*dashed*/;
+  border-color: rgb(9, 82, 219) /*#FFAC55*/;
+  overflow: hidden;
+}
+
+.h4 {
+  font-family: "cwTeXYen";
+  font-size: 1.3em;
+}
+
+#Rectarea {
+  height: 300px;
+  width: 300px;
+  border: 1px solid black;
+}
+
+.policy_button {
+  background-color: #4caf50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.policy_area {
+  background-color: rgb(61, 61, 61);
+  position: absolute;
+  text-align: center;
+  width: 970px;
+  height: 480px;
+  padding: 10px;
+  font: 20px sans-serif;
+  opacity: 0;
+  display: none;
+}
+
+.policy_text {
+  position: absolute;
+  text-align: center;
+  width: 530px;
+  height: 200px;
+  margin: 10px 150px 10px 200px;
+  font: 16px sans-serif;
+  color: white;
+  display: none;
+}
+
+.timeline {
+  fill: green;
+  opacity: 0;
 }
