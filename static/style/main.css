@@ -34,6 +34,7 @@
   background-color: rgba(255, 255, 255,0.8);
   position: absolute;
   bottom: 4rem;
+  width: 60vw;
 }
 
 .imgDesc {
@@ -112,6 +113,11 @@
 div[class~="footer"]  p {
   color: white;
 }
+
+div[class~="footer"]  h3 {
+  color: white;
+}
+
 
 p,
 button,
