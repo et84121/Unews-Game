@@ -238,7 +238,7 @@ function unlock() {
 
 /*=====================宣告全域變數=========================================*/
 // set the dimensions and margins of the graph
-var margin = { top: 150, right: 20, bottom: 30, left: 80 },//left50
+var margin = { top: 150, right: 40, bottom: 30, left: 80 },//left50
     width = 700 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;//500
 
