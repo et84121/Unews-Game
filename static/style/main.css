@@ -15,10 +15,11 @@
 
 .headH1 {
   font-family: "Noto Sans TC", sans-serif;
-  margin-bottom: 20%;
+  margin-bottom: 15%;
   font-size: 5rem;
   color: white;
   text-shadow: 2px 2px 5px #000000;
+  line-height: 1.8;
 
 }
 
