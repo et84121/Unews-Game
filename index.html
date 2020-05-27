@@ -21,10 +21,10 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap"
       rel="stylesheet"
     />
-    <script async src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
-    <script async src="static/js/main.js"></script>
+    <script src="static/js/main.js"></script>
     <script>
       var unityInstance = UnityLoader.instantiate(
         "unityContainer",
@@ -51,7 +51,9 @@
   </head>
   <body>
     <div class="container-fluid">
-      <div class="helloSection row align-items-center justify-content-center">
+      <div
+        class="helloSection row align-items-center justify-content-center scroll-snap-align"
+      >
         <div class="col">
           <h1
             class="headH1"
@@ -65,7 +67,7 @@
 
         <p
           data-aos="fade-up"
-          data-aos-offset="220"
+          data-aos-offset="280"
           class="text-center gameText p-3"
         >
           近年環保意識抬頭，減少使用一次性餐具已經成為世界趨勢。
@@ -75,8 +77,8 @@
       </div>
 
       <div
-        class="row align-items-center justify-content-center"
-        style="min-height: 110vh;"
+        class="row align-items-center justify-content-center scroll-snap-align"
+        style="min-height: 100vh;"
       >
         <div class="col-xl-8">
           <div id="unityContainer"></div>
@@ -91,7 +93,9 @@
         </div>
       </div>
 
-      <div class="section2 row align-items-center justify-content-center">
+      <div
+        class="section2 row align-items-center justify-content-center scroll-snap-align"
+      >
         <div class="col-xl-8">
           <h1
             class="helloH1"
@@ -219,7 +223,9 @@
         </div>
       </div>
 
-      <div class="section3 row align-items-center justify-content-center">
+      <div
+        class="section3 row align-items-center justify-content-center scroll-snap-align"
+      >
         <div class="col-xl-8">
           <h1
             class="helloH1"
@@ -417,7 +423,9 @@
         </div>
       </div>
 
-      <div class="section4 row align-items-center justify-content-center">
+      <div
+        class="section4 row align-items-center justify-content-center scroll-snap-align"
+      >
         <div class="col-xl-8">
           <h1
             class="helloH1"
@@ -477,7 +485,9 @@
         </div>
       </div>
 
-      <div class="section5 row align-items-center justify-content-center mb-3">
+      <div
+        class="section5 row align-items-center justify-content-center mb-3 scroll-snap-align"
+      >
         <div class="col-xl-8">
           <h1
             class="helloH1"
@@ -558,7 +568,7 @@
       >
         <div class="col-xl-4">
           <p class="text-center">
-            政大大學報 政大資科系 2020
+            政大大學報 政大資科系 2020 version 0.0.9
           </p>
           <p class="text-center">
             採訪編輯 NAME NAME NAME NAME

@@ -40,6 +40,10 @@
   font-size: 16px;
 }
 
+.scroll-snap-align {
+  scroll-snap-align: start;
+}
+
 .section2 {
   min-height: 100vh;
   background-attachment: fixed;
@@ -120,6 +124,11 @@ img {
   -webkit-box-shadow: 6px 6px 10px -4px rgba(0, 0, 0, 0.58);
   -moz-box-shadow: 6px 6px 10px -4px rgba(0, 0, 0, 0.58);
   box-shadow: 6px 6px 10px -4px rgba(0, 0, 0, 0.58);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 
 /* Text Selection Color */
