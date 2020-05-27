@@ -80,6 +80,14 @@
       >
         <div class="col-xl-8">
           <div id="unityContainer"></div>
+          <button
+            type="button"
+            class="btn btn-outline-primary mt-2"
+            style="margin-left: 45%;"
+            onclick="unityInstance.SetFullscreen(1)"
+          >
+            全螢幕遊玩
+          </button>
         </div>
       </div>
 
@@ -237,43 +245,42 @@
           <div id="d3">
             <!-- <div class="tooltiptext" style="height: 25px;left:280px;top:240px">塑膠容器</div> -->
             <button
-              class="policy_button"
+              class="btn btn-outline-primary m-1"
               id="news1"
               onclick="policy_ComeOut(1)"
             >
               2002　分階段限用塑膠袋及免洗餐具
             </button>
             <button
-              class="policy_button"
+              class="btn btn-outline-primary m-1"
               id="news2"
               onclick="policy_ComeOut(2)"
             >
               2006　限塑政策精進方案
             </button>
             <button
-              class="policy_button"
+              class="btn btn-outline-primary m-1"
               id="news3"
               onclick="policy_ComeOut(3)"
             >
               2007　要求塑膠包裝減量
             </button>
-            <br />
             <button
-              class="policy_button"
+              class="btn btn-outline-primary m-1"
               id="news4"
               onclick="policy_ComeOut(4)"
             >
               2018　擴大實施限塑
             </button>
             <button
-              class="policy_button"
+              class="btn btn-outline-primary m-1"
               id="news5"
               onclick="policy_ComeOut(5)"
             >
               2019　一次性塑膠吸管限制使用對象
             </button>
             <button
-              class="policy_button"
+              class="btn btn-outline-info m-1"
               id="news6"
               onclick="kwsk(!IsTimelineChart)"
             >
@@ -281,7 +288,7 @@
             </button>
             <br />
 
-            <div class="policy_area" onclick="close_text()">
+            <div class="policy_area mt-1" onclick="close_text()">
               <div class="policy_text" id="text1">
                 2002 分階段限用塑膠袋及免洗餐具
                 <p>
