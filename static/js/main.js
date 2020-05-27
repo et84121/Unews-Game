@@ -195,7 +195,7 @@ function close_PPchart2() {
 
 /*=====================宣告全域變數=========================================*/
 // set the dimensions and margins of the graph
-var margin = { top: 150, right: 20, bottom: 30, left: 80 }, //left50
+var margin = { top: 150, right: 40, bottom: 30, left: 80 }, //left50
   width = 700 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom; //500
 
@@ -308,14 +308,15 @@ d3.csv("static/data/GarbageData.csv").then(function (data) {
   svg
     .append("g")
     .attr("transform", "translate(0," + height + ")")
+    .style("font-size", "18px")
     .call(d3.axisBottom(x));
 
   // Add the Y Axis
-  svg.append("g").call(d3.axisLeft(y));
+  svg.append("g").style("font-size", "18px").call(d3.axisLeft(y));
 
   svg
     .append("text")
-    .style("font-size", "14px")
+    .style("font-size", "18px")
 
     //.style('font-weight', 'bold')
     .attr("x", -26)
