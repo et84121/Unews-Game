@@ -6,3 +6,11 @@ Unews-Game
 
 * 專題記者 | 阮珮慈、吳曼嘉、張佳琪、徐品蓁 
 * 工程協力 | 張欽棠、林彥賓、洪辰瑋、張淯淞、陳君杰、陳昱融、鄭惟仁
+
+
+## Tech-Stack
+
+* D3.js
+* aos.js
+* bootstrap 4
+* Unity WebGL
